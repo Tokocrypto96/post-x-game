@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kucing Tangkap Dimsum</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #160b2e;
+    color: #fff;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    display: flex; flex-direction: column; align-items: center;
+    min-height: 100vh; padding: 24px 12px;
+  }
+  h1 { font-size: 28px; margin-bottom: 4px; }
+  p.sub { color: #d9c8ff; margin-bottom: 14px; font-size: 14px; }
+  #hud {
+    display: flex; gap: 12px; margin-bottom: 10px; flex-wrap: wrap;
+    justify-content: center;
+  }
+  .pill {
+    background: #2b1a4d; border: 1px solid #6b4fa1; border-radius: 999px;
+    padding: 6px 14px; font-size: 15px; font-weight: 600;
+  }
+  .pill b { color: #ffe9a8; }
+  #wrap { position: relative; }
+  canvas {
+    display: block; width: 800px; max-width: 96vw; height: auto;
+    border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,.5);
+    background: #2b1a4d;
+  }
+  #overlay {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 12px;
+    background: rgba(15, 5, 35, 0.72); border-radius: 14px; text-align: center;
+    padding: 20px;
+  }
+  #overlay.hidden { display: none; }
+  #overlay-title { font-size: 30px; }
+  #overlay-text { color: #ffe9a8; font-size: 17px; }
+  #overlay-btn {
+    background: #ff9a5c; color: #2b1503; border: 0; border-radius: 999px;
+    padding: 12px 28px; font-size: 18px; font-weight: 700; cursor: pointer;
+  }
+  #overlay-btn:hover { background: #ffb37e; }
+  .tips { margin-top: 12px; color: #b9a8dd; font-size: 13px; text-align: center; line-height: 1.7; }
+  .tips span { color: #ffe9a8; }
+</style>
+</head>
+<body>
+  <h1>🐱 Kucing Tangkap Dimsum 🥟</h1>
+  <p class="sub">Game web offline — tanpa server, tanpa internet.</p>
+  <div id="hud">
+    <div class="pill">Skor: <b id="score">0</b></div>
+    <div class="pill">Waktu: <b id="time">60 dtk</b></div>
+    <div class="pill">Nyawa: <b id="lives">❤❤❤</b></div>
+    <div class="pill">Level: <b id="level">Lv 1</b></div>
+  </div>
+  <div id="wrap">
+    <canvas id="game" width="800" height="520"></canvas>
+    <div id="overlay">
+      <div id="overlay-title">Siap menangkap dimsum?</div>
+      <div id="overlay-text">Dimsum +10 • Dimsum emas +50 • Cabai −1 nyawa • 60 detik</div>
+      <button id="overlay-btn">MULAI MAIN</button>
+    </div>
+  </div>
+  <p class="tips">
+    Gerakkan kucing: <span>← →</span> atau <span>A / D</span> atau <span>mouse</span> •
+    Mulai ulang: <span>R</span> • Tiap 150 poin naik level, dimsum makin cepat.
+  </p>
+  <script src="./config.js"></script>
+  <script src="./random.js"></script>
+  <script src="./input.js"></script>
+  <script src="./render.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
